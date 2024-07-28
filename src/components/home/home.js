@@ -18,7 +18,7 @@ const Home = () => {
       setToken(storedToken);
     }
 
-    // Fetch Bitcoin price
+    // Fetch Bitcoin price initially
     const fetchBtcPrice = async () => {
       try {
         const response = await axios.get('http://localhost:5000/btc-price');
@@ -32,7 +32,25 @@ const Home = () => {
     };
 
     fetchBtcPrice();
+
+    // Set an interval to fetch the Bitcoin price every 10 seconds
+    const interval = setInterval(fetchBtcPrice, 10000);
+
+    // Clear interval on component unmount
+    return () => clearInterval(interval);
   }, []);
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/submit-data', {
+        email,
+        alert
+      });
+      console.log(response.data.message);
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
+  };
 
   return (
     <div>
@@ -52,6 +70,7 @@ const Home = () => {
           onChange={(e) => setAlert(e.target.value)}
         />
       </div>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

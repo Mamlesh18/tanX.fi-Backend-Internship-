@@ -9,6 +9,9 @@ from flask import Flask, jsonify
 import requests
 from dotenv import load_dotenv
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 CORS(app)  # This will enable CORS for all routes
@@ -130,7 +133,48 @@ def btc_price():
     else:
         return jsonify({"error": "Unable to fetch Bitcoin price"}), 500
 
+@app.route('/submit-data', methods=['POST'])
+def submit_data():
+    data = request.json
+    email = data.get('email')
+    alert = data.get('alert')
 
+    # Fetch the current BTC price
+    btc_price = get_btc_price()
+    message = "BTC price is not higher than the alert value."
+
+    if btc_price is not None:
+        alert_value = float(alert)
+        if btc_price > alert_value:
+            message = f"The current BTC price (${btc_price:.2f}) is higher than your alert value (${alert_value:.2f})."
+
+            # Send email
+            try:
+                sender_email = "mamlesh.va06@gmail.com"
+                receiver_email = email
+                password = "nkdh bwyg seks qvni"
+
+                # Create the email content
+                msg = MIMEMultipart()
+                msg['From'] = sender_email
+                msg['To'] = receiver_email
+                msg['Subject'] = "BTC Price Alert"
+                msg.attach(MIMEText(message, 'plain'))
+
+                # Send the email
+                server = smtplib.SMTP('smtp.gmail.com', 587)
+                server.starttls()
+                server.login(sender_email, password)
+                server.send_message(msg)
+                server.quit()
+                
+                print("Email sent successfully")
+            except Exception as e:
+                print(f"Failed to send email: {e}")
+
+        return jsonify({'message': 'Data received', 'btc_price': btc_price, 'comparison': message}), 200
+    else:
+        return jsonify({'message': 'Data received, but failed to fetch BTC price'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

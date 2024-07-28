@@ -1,6 +1,6 @@
 
 
-Bitcoin Alert System
+#Bitcoin Alert System
 This project is a Bitcoin alert system that notifies users when the price of Bitcoin reaches a specified threshold. The frontend is built using React.js, and the backend is developed using Python Flask. PostgreSQL is used as the database, and JWT tokens are used for user authentication. SMTP is employed for sending automated emails.
 
 Features

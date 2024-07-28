@@ -152,7 +152,7 @@ def submit_data():
             try:
                 sender_email = "mamlesh.va06@gmail.com"
                 receiver_email = email
-                password = "nkdh bwyg seks qvni"
+                password = <ENTER PASSWORD FOR EMAIL>
 
                 # Create the email content
                 msg = MIMEMultipart()

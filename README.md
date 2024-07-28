@@ -88,6 +88,9 @@ The CoinMarketCap API key is required to fetch real-time Bitcoin prices. Ensure 
 ## Automated mail
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/mail.png)
 
+## Docker File Structure
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/Docker_file_structure.png)
+
 ## Running Docker
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/running_docker.png)
 

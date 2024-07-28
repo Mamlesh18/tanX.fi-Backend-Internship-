@@ -53,12 +53,42 @@ The system uses SMTP for sending automated emails when alert conditions are met.
 ## API Key
 The CoinMarketCap API key is required to fetch real-time Bitcoin prices. Ensure that you have a valid API key and that it is correctly configured in the backend.
 
-## Database Storage 
+# Database Storage 
 
-# Alert Storage
+## Alert Storage
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/alert_db.png)
-# User Storage
+## User Storage
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/user_db.png)
+
+# Frontend
+
+## Login
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/login.png)
+
+## Login Success
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/login_success.png)
+## Signup
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/signup.png)
+
+## Home
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/home.png)
+
+## Save Alert
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/save alert.png)
+
+## Save Alert
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/your_alert.png)
+
+# Backend
+
+## API Request
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/backend_api.png)
+
+
+## Automated mail
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/mail.png)
+
+
 
 ## Prerequisites
 Node.js and npm for the frontend.
@@ -70,5 +100,4 @@ Ensure that you have the necessary CORS configurations if the frontend and backe
 Consider securing your JWT tokens and other sensitive information using environment variables or a secure vault.
 Implement rate limiting and error handling for the API requests to handle potential issues with the CoinMarketCap API.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+

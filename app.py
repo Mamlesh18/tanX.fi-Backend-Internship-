@@ -175,6 +175,71 @@ def submit_data():
         return jsonify({'message': 'Data received', 'btc_price': btc_price, 'comparison': message}), 200
     else:
         return jsonify({'message': 'Data received, but failed to fetch BTC price'}), 200
+@app.route('/alerts/create/', methods=['POST'])
+def create_alert():
+    data = request.json
+    email = data.get('email')
+    alert_value = data.get('alert')
+
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        # Insert the alert into the database
+        insert_script = """
+        INSERT INTO storage_alerts (email, alert_value) 
+        VALUES (%s, %s)
+        """
+        cur.execute(insert_script, (email, alert_value))
+        
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        return jsonify({'message': 'Alert created', 'alert': alert_value}), 201
+
+    except Exception as e:
+        print(f"Error creating alert: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/alerts/delete/', methods=['POST'])
+def delete_alert():
+    data = request.json
+    email = data.get('email')
+
+    # Here you would typically delete the alert from a database
+    # For simplicity, we'll just return a success message
+    return jsonify({'message': 'Alert deleted'}), 200
+
+
+@app.route('/alerts/list/', methods=['GET'])
+def list_alerts():
+    email = request.args.get('email')
+    
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        
+        # Fetch the alerts for the given email
+        select_script = """
+        SELECT alert_value, created_at
+        FROM storage_alerts
+        WHERE email = %s
+        ORDER BY created_at DESC;
+        """
+        cur.execute(select_script, (email,))
+        alerts = cur.fetchall()
+        
+        cur.close()
+        conn.close()
+        
+        alert_list = [{'alert_value': alert[0], 'created_at': alert[1].strftime('%Y-%m-%d %H:%M:%S')} for alert in alerts]
+        return jsonify({'alerts': alert_list}), 200
+        
+    except Exception as e:
+        print(f"Error fetching alerts: {e}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

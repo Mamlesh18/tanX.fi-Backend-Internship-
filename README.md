@@ -33,3 +33,35 @@ Navigate to the frontend directory:
 cd Frontend/my-app
 npm install
 npm start
+```
+## Backend
+
+In the `app.py` file, replace the placeholders for the email password and CoinMarketCap API key with your credentials.
+
+### Run the Flask backend:
+
+```bash
+python app.py
+```
+
+## Environment Variables
+Make sure to set the necessary environment variables for the database connection, email credentials, and API keys.
+
+## SMTP and Mail Automation
+The system uses SMTP for sending automated emails when alert conditions are met. Ensure that your SMTP server credentials are correctly configured in the backend.
+
+## API Key
+The CoinMarketCap API key is required to fetch real-time Bitcoin prices. Ensure that you have a valid API key and that it is correctly configured in the backend.
+
+## Prerequisites
+Node.js and npm for the frontend.
+Python 3 and Flask for the backend.
+PostgreSQL for the database.
+
+## Additional Notes
+Ensure that you have the necessary CORS configurations if the frontend and backend are hosted on different domains.
+Consider securing your JWT tokens and other sensitive information using environment variables or a secure vault.
+Implement rate limiting and error handling for the API requests to handle potential issues with the CoinMarketCap API.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.

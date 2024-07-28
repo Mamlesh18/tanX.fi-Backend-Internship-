@@ -74,7 +74,7 @@ The CoinMarketCap API key is required to fetch real-time Bitcoin prices. Ensure 
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/home.png)
 
 ## Save Alert
-![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/save alert.png)
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/save_alert.png)
 
 ## Save Alert
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/your_alert.png)

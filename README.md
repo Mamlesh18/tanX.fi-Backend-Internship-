@@ -52,7 +52,13 @@ The system uses SMTP for sending automated emails when alert conditions are met.
 
 ## API Key
 The CoinMarketCap API key is required to fetch real-time Bitcoin prices. Ensure that you have a valid API key and that it is correctly configured in the backend.
+
+## Database Storage 
+
+# Alert Storage
 ![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/alert_db.png)
+# User Storage
+![Bitcoin Alert System](https://github.com/Mamlesh18/tanX.fi-Backend-Internship-/blob/main/images/user_db.png)
 
 ## Prerequisites
 Node.js and npm for the frontend.

@@ -2,7 +2,7 @@ version: '3.8'
 services:
   backend:
     build: 
-      context: ./backend
+      context: ./Backend
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./Frontend
       dockerfile: Dockerfile
     ports:
       - "3000:5000"  # Mapping 3000 to 5000 because of serve
